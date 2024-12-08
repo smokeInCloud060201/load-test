@@ -1,5 +1,6 @@
 package com.gatling.config;
 
+
 import io.gatling.javaapi.core.ChainBuilder;
 import io.gatling.javaapi.core.ScenarioBuilder;
 import io.gatling.javaapi.core.Simulation;
@@ -10,13 +11,13 @@ import java.util.List;
 
 import static io.gatling.javaapi.core.CoreDsl.exec;
 import static io.gatling.javaapi.core.CoreDsl.jmesPath;
-import static io.gatling.javaapi.core.CoreDsl.nothingFor;
 import static io.gatling.javaapi.core.CoreDsl.scenario;
 import static io.gatling.javaapi.core.OpenInjectionStep.atOnceUsers;
 import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
-public abstract class BaseSimulator extends Simulation {
+
+public class BaseSimulator extends Simulation {
 
     List<String> jwt = new ArrayList<>(1);
 
@@ -62,6 +63,18 @@ public abstract class BaseSimulator extends Simulation {
                 return s;
             })
             .exec(getAll);
+
+    @Override
+    public void before() {
+        System.out.println("Simulation is about to start!");
+        try {
+            Thread.sleep(3000);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("Simulation is end about to start!");
+    }
 
     {
         setUp(scnAuth.injectOpen(atOnceUsers(1)).protocols(auth));

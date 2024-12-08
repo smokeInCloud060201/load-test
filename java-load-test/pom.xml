@@ -25,6 +25,11 @@
             <artifactId>gatling-charts-highcharts</artifactId>
             <version>3.13.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-core</artifactId>
+            <version>3.13.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -32,7 +37,7 @@
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
-                <version>4.11.0</version>
+                <version>4.10.1</version>
                 <configuration>
                     <includes>
                         <include>com.gatling.config.BaseSimulator</include>
