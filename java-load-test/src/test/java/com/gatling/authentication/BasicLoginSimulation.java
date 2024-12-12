@@ -10,9 +10,6 @@ import static io.gatling.javaapi.http.HttpDsl.http;
 public class BasicLoginSimulation extends BaseLoginSimulation {
     @Override
     public ChainBuilder getToken(LoginRequest loginRequest) {
-        ChainBuilder chainBuilder = exec(http("Basic Authentication")
-                .post(loginRequest.getPath())
-                .body(JsonUtil.toJsonString()))
-                .toChainBuilder();
+        return null;
     }
 }
